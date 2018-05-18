@@ -1,0 +1,18 @@
+{
+
+  "description": "Redirect to the original size imgs on twimg.com",
+  "manifest_version": 2,
+  "name": "RedirectTwimgOrgsize",
+  "version": "1.0",
+
+  "permissions": [
+    "webRequest", 
+    "webRequestBlocking",
+    "https://pbs.twimg.com/media/*.jpg"
+  ],
+ 
+  "background": {
+    "scripts": ["RedirectTwimgOrgsize.js"]
+  }
+
+}
