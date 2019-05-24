@@ -1,8 +1,13 @@
-let targetUrl = "https://pbs.twimg.com/media/*.jpg";
+
 
 chrome.webRequest.onBeforeRequest.addListener(
-  // ES2015のアロー関数で実装
-  reqDetails => ({redirectUrl: reqDetails.url + ":orig"}),
-  {urls:[targetUrl], types:["main_frame"]},
-  ["blocking"]
+
+  reqDetails => ({ redirectUrl: reqDetails.url.replace(/&name=.*$/, "&name=orig") }),
+      {
+          urls: ["https://pbs.twimg.com/media/*&name=small",
+                 "https://pbs.twimg.com/media/*&name=medium",
+                 "https://pbs.twimg.com/media/*&name=large"],
+          types: ["main_frame"]
+      },
+      ["blocking"]
 );
